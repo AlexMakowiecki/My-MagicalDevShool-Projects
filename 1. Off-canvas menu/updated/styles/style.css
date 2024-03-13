@@ -1,0 +1,96 @@
+
+:root {
+  --main-font-family: sans-serif;
+  --main-background-color: rgb(99 194 172);
+  --main-text-color: rgb(14 28 39);
+}
+
+body {
+  --off-canvas-menu-width: 18rem;
+  min-height: 100vh;
+  background-color: var(--main-background-color);
+  font-family: var(--main-font-family);
+}
+
+main {
+  padding-top: 4rem;
+  padding-left: 4rem;
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+}
+
+main h1{
+  font-weight: 200;
+  max-width: 22ch;
+  margin-bottom: 0.5em;
+}
+
+main > .toggle-menu-button{
+  background-color: var(--main-background-color);
+  border: 2px solid var(--main-text-color);
+  color: var(--main-text-color);
+}
+
+main > .toggle-menu-button:hover,
+main > .toggle-menu-button:focus{
+  background-color: var(--main-text-color);
+  color: var(--main-background-color);
+}
+
+main > .toggle-menu-button:focus{
+  outline: 4px solid rgb(11 130 209);
+}
+
+.off-canvas-menu {
+  width: var(--off-canvas-menu-width);
+  min-height: 100vh;
+  padding-top: 4em;
+  position: absolute;
+  background-color: var(--main-text-color);
+  color: rgb(189, 196, 214);
+  font-size: 0.9rem;
+}
+
+.off-canvas-menu li{
+  padding: 0.75em 1em;
+  padding-left: 2rem;
+  cursor: default;
+  user-select: none;
+}
+
+.off-canvas-menu li:hover{
+  background-color: rgb(0,0,0);
+}
+
+
+/* Off canvas toggle functionality */
+
+main{
+  margin-left: 0;
+  transition: margin-left 0.4s linear;
+}
+
+main.--off-canvas-menu-visible{
+  margin-left: var(--off-canvas-menu-width);
+}
+
+.off-canvas-menu{
+  left: calc(var(--off-canvas-menu-width) * -1);
+  transition: left 0.4s linear;
+}
+
+.off-canvas-menu.--visible{
+  left: 0px;
+}
+
+/* Box to show the changes */
+
+.box-to-show-changes{
+  height: 3em;
+  width: 3em;
+  position:absolute;
+  right: 1em;
+  top: 1em;
+  background-color:var(--main-text-color);
+  border-radius: 50%;
+}
