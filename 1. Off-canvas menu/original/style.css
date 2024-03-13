@@ -79,3 +79,13 @@ main button:focus{
   background-color: rgb(0,0,0);
 }
 
+.box-to-show-changes{
+  height: 3em;
+  width: 3em;
+  position:absolute;
+  right: 1em;
+  top: 1em;
+  background-color:var(--main-text-color);
+  border-radius: 50%;
+}
+
