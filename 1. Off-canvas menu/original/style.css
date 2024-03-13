@@ -1,0 +1,81 @@
+
+:root {
+  --main-font-family: sans-serif;
+  --main-background-color: rgb(99 194 172);
+  --main-text-color: rgb(14 28 39);
+}
+
+
+body {
+  --off-menu: 30vw;
+  min-height: 100vh;
+  display:flex;
+  background-color: var(--main-background-color);
+  font-family: var(--main-font-family);
+  transform: translateX(-30vw);
+  transition: transform 0.5s ease-out;
+}
+
+body.off-menu__visible{
+  transform: translateX(0);
+}
+
+
+main {
+  display:flex;
+  flex-direction:column;
+  gap: 20px;
+  padding-top: 4rem;
+  padding-left: 4rem;
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+  transition: 0.5s transform ease-out;
+}
+
+main h1{
+  font-weight: 200;
+  max-width: 27rem;
+}
+
+main button {
+  width: max-content;
+  margin-left: 2px;
+
+  background-color: var(--main-background-color);
+  border: 2px solid var(--main-text-color);
+
+  color: var(--main-text-color);
+}
+
+
+main button:hover,
+main button:focus{
+  background-color: var(--main-text-color);
+  color: var(--main-background-color);
+}
+
+main button:focus{
+  outline: 4px solid rgb(11 130 209);
+}
+
+
+.off-canvas-menu {  
+  width: var(--off-menu);
+  flex-shrink: 0;
+  padding-top: 4em;
+  background-color: var(--main-text-color);
+  color: rgb(189, 196, 214);
+  font-size: 0.9rem;
+}
+
+.off-canvas-menu li{
+  padding: 0.75em 1em;
+  padding-left: 2rem;
+  cursor: default;
+  user-select: none;
+}
+
+.off-canvas-menu li:hover{
+  background-color: rgb(0,0,0);
+}
+
