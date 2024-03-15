@@ -5,6 +5,11 @@
   --main-text-color: rgb(14 28 39);
 }
 
+a {
+  text-decoration: none;
+  color:inherit;
+}
+
 body {
   --off-canvas-menu-width: 18rem;
   min-height: 100vh;
@@ -14,7 +19,7 @@ body {
 
 main {
   padding-top: 4rem;
-  padding-left: 4rem;
+  padding-inline: 4vw;
   background-color: var(--main-background-color);
   color: var(--main-text-color);
 }
@@ -51,14 +56,18 @@ main > .toggle-menu-button:focus{
   font-size: 0.9rem;
 }
 
-.off-canvas-menu li{
-  padding: 0.75em 1em;
-  padding-left: 2rem;
+.off-canvas-menu a{
+  display: inline-block;
+  width: 100%;
+  padding: 0.75em 1em 0.75em 2em;
+  border:none;
+  text-align:left;
   cursor: default;
   user-select: none;
 }
 
-.off-canvas-menu li:hover{
+.off-canvas-menu a:hover,
+.off-canvas-menu a:focus{
   background-color: rgb(0,0,0);
 }
 
@@ -76,21 +85,36 @@ main.--off-canvas-menu-visible{
 
 .off-canvas-menu{
   left: calc(var(--off-canvas-menu-width) * -1);
-  transition: left 0.4s linear;
+  visibility: hidden;
+  transition: left 0.4s linear, 0.4s visibility;
 }
 
 .off-canvas-menu.--visible{
   left: 0px;
+  visibility: visible;
+  transition: left 0.4s linear;
 }
 
 /* Box to show the changes */
 
 .box-to-show-changes{
-  height: 3em;
-  width: 3em;
+  height: min(3em, 4vw);
+  width: min(3em, 4vw);
   position:absolute;
   right: 1em;
   top: 1em;
   background-color:var(--main-text-color);
   border-radius: 50%;
+}
+
+/* Responsiveness for mobile */
+
+@media (max-width: 480px){
+  body{
+    --off-canvas-menu-width: 100vw;
+  }
+
+  main.--off-canvas-menu-visible{
+    margin-left:0;
+  }
 }
